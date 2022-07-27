@@ -1,0 +1,4 @@
+name: Network
+version: '${project.version}'
+main: me.night0721.network.Network
+description: Network plugin for BungeeCord
