@@ -1,5 +1,7 @@
 package me.night0721.network;
 
+import me.night0721.network.commands.MessageCommand;
+import me.night0721.network.commands.SkywarsCommand;
 import me.night0721.network.util.Utils;
 import net.md_5.bungee.api.ChatColor;
 import net.md_5.bungee.api.Favicon;
@@ -18,7 +20,9 @@ public final class Network extends Plugin implements Listener {
     @Override
     public void onEnable() {
         System.out.println("[NETWORK] 123");
-        getProxy().getPluginManager().registerListener(this,this);
+        getProxy().getPluginManager().registerListener(this, this);
+        getProxy().getPluginManager().registerCommand(this, new SkywarsCommand(this));
+        getProxy().getPluginManager().registerCommand(this, new MessageCommand());
         try {
             f = Favicon.create(ImageIO.read(new File("icon.png")));
         } catch (IOException e) {
